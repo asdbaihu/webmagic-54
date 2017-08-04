@@ -1,4 +1,4 @@
-package com.fsdcyr.pageprocessor;
+package com.fsdcyr.exercise.pageprocessor;
 
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.model.ConsolePageModelPipeline;

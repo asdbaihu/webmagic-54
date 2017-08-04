@@ -1,8 +1,9 @@
-package com.fsdcyr.pageprocessor;
+package com.fsdcyr.exercise.pageprocessor;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
@@ -27,9 +28,9 @@ public class SinaBlogProcessor implements PageProcessor {
             //文章页
         } else {
             page.putField("title", page.getHtml().xpath("//div[@class='articalTitle']/h2"));
-//            page.putField("content", page.getHtml().xpath("//div[@id='articlebody']//div[@class='articalContent']"));
-//            page.putField("date",
-//                    page.getHtml().xpath("//div[@id='articlebody']//span[@class='time SG_txtc']").regex("\\((.*)\\)"));
+            page.putField("content", page.getHtml().xpath("//div[@id='articlebody']//div[@class='articalContent']"));
+            page.putField("date",
+                    page.getHtml().xpath("//div[@id='articlebody']//span[@class='time SG_txtc']").regex("\\((.*)\\)"));
         }
     }
 
@@ -40,7 +41,6 @@ public class SinaBlogProcessor implements PageProcessor {
     public static void main(String[] args) {
         Spider.create(new SinaBlogProcessor())
                 .addUrl("http://blog.sina.com.cn/s/articlelist_1487828712_0_1.html")
-                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
                 .run();
     }
 }

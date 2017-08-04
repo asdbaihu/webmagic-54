@@ -1,4 +1,4 @@
-package com.fsdcyr.pageprocessor;
+package com.fsdcyr.exercise.pageprocessor;
 
 import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.Page;

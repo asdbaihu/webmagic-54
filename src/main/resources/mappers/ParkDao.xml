@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fsdcyr.park.dao.ParkDao">
+    <resultMap id="resultMap" type="Role">
+        <id column="id" property="id" />
+        <result column="name" property="name" javaType="string" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />
+    </resultMap>
+
+    <select id="getById" resultMap="resultMap">
+        select * from t_role where id = #{id}
+    </select>
+
+</mapper>
